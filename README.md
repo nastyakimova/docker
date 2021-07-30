@@ -106,16 +106,16 @@ Hands-on practice quest #00: prerequisites sound-check (15+5)
 ``` 
 
 - [ ] When участники *именуют сценарии*, выполняют команды и анализируют их вывод и поведение
-- Сценарий "Как ...?"
+- Сценарий "Как мне узнать состояние докер системы (последние события, используемую память)"
 ```shell
-docker version # TODO: собственные пометки участников для будущего использования в проектах
+docker version # Docker API version
 docker system info
 docker system df
 
 docker events
 ```
 
-- Сценарий "Как ...?"
+- Сценарий "Как мне аутентифицироваться в докер registry?"
 (в новом ssh shell, чтобы параллельно видеть вывод `docker events`)
 ```shell
 docker logout
@@ -123,13 +123,13 @@ open https://hub.docker.com/settings/security # to make Access Token
 docker login -u {{ registry-account }} -p {{ access-token }} # login default hub.docker.com registry
 ```
 
-- Сценарий "Как ...?"
+- Сценарий "Как мне скачать последний image и проверить его размер?"
 ```shell
 docker image pull alpine
 docker system df
 ````
 
-- Сценарий "Как ...?"
+- Сценарий "Как мне запустить команду в контейнере?"
 ```shell
 docker container ls [--all]
 docker container run --name demo -it alpine
@@ -137,7 +137,7 @@ docker container run --name demo -it alpine
 /# exit 
 ```
 
-- Сценарий "Как ...?"
+- Сценарий "Как мне удалить контейнер по имени?"
 ```shell
 docker container ls [--all]
 docker container rm [--force] demo
@@ -146,12 +146,12 @@ docker container rm [--force] demo
 - [ ] Then участники делятся проблемами и отвечают на вопросы
 - Как проименовали сценарии?
 - Успешна ли сконфигурирована система для использования docker?
-- Какая версия API?
-- Откуда взялся образ диска?
-- Сколько места занимает образ?
-- Сколько места занимает контейнер?
-- Какая версия образа скачивается по умолчанию?
-- Какая гостевая команда запускается при запуске контейнера?
+- Какая версия API? 1.41
+- Откуда взялся образ диска? из registry - hub.docker.com
+- Сколько места занимает образ? 5.595 МБ
+- Сколько места занимает контейнер? 26B
+- Какая версия образа скачивается по умолчанию? latest
+- Какая гостевая команда запускается при запуске контейнера? /bin/sh 
 
 Жизненный цикл готового образа (40)
 ------------------------------
