@@ -106,11 +106,11 @@ Hands-on practice quest #00: prerequisites sound-check (15+5)
 ``` 
 
 - [ ] When участники *именуют сценарии*, выполняют команды и анализируют их вывод и поведение
-- Сценарий "Как мне узнать состояние докер системы (последние события, используемую память)"
+- Сценарий "Как мне узнать системнную информацию докера"
 ```shell
-docker version # Docker API version
+docker version # Versions of clients and demon (can be incompatible)
 docker system info
-docker system df
+docker system df 
 
 docker events
 ```
@@ -123,32 +123,32 @@ open https://hub.docker.com/settings/security # to make Access Token
 docker login -u {{ registry-account }} -p {{ access-token }} # login default hub.docker.com registry
 ```
 
-- Сценарий "Как мне скачать последний image и проверить его размер?"
+- Сценарий "Как мне скачать последний образ и проверить его размер?"
 ```shell
 docker image pull alpine
 docker system df
 ````
 
-- Сценарий "Как мне запустить команду в контейнере?"
+- Сценарий "Как запустить контейнер?"
 ```shell
-docker container ls [--all]
-docker container run --name demo -it alpine
+docker container ls [--all] #список работающих и остановленных контейнеров
+docker container run --name demo -it alpine #запуск контейнера с именем demo на базе имаджа alpine, в интерактивном режиме (-it)
 /# cat /etc/os-release
 /# exit 
 ```
 
 - Сценарий "Как мне удалить контейнер по имени?"
 ```shell
-docker container ls [--all]
-docker container rm [--force] demo
+docker container ls [--all] #список работающих и остановленных контейнеров
+docker container rm [--force] demo  #удаление контейнеров
 ```
 
 - [ ] Then участники делятся проблемами и отвечают на вопросы
 - Как проименовали сценарии?
 - Успешна ли сконфигурирована система для использования docker?
 - Какая версия API? 1.41
-- Откуда взялся образ диска? из registry - hub.docker.com
-- Сколько места занимает образ? 5.595 МБ
+- Откуда взялся образ диска? из реестра - hub.docker.com
+- Сколько места занимает образ? (df, images) 5.595 МБ
 - Сколько места занимает контейнер? 26B
 - Какая версия образа скачивается по умолчанию? latest
 - Какая гостевая команда запускается при запуске контейнера? /bin/sh 
@@ -167,7 +167,7 @@ docker container rm [--force] demo
 - Config files
 - Data files
 ```shell
-$ docker run --rm -it alpine ls
+$ docker run --rm -it alpine ls #запуска одноразового контейнера. контейнер удалится после отработки команды ls
 bin    dev    etc    home   lib    media  mnt    opt    proc   root   run    sbin   srv    sys    tmp    usr    var
 ```
 
